@@ -22,7 +22,7 @@ This project uses several microservices in a distributed system architecture. Ea
 #### 3. **Department-Service**
 
 - The Department-Service handles department data and interacts with the Employee-Service to retrieve information about employees in a given department.
-- **Port**: Varies (as it's registered dynamically with Eureka).
+- **Port**: 8081 (varies as it's registered dynamically with Eureka).
 - **Endpoints**:
   - **`/department`**: 
     - `POST`: Creates a new department.
@@ -36,7 +36,7 @@ This project uses several microservices in a distributed system architecture. Ea
 #### 4. **Employee-Service**
 
 - The Employee-Service manages employee data and provides endpoints for CRUD operations on employees. It also supports retrieving employees by their department ID.
-- **Port**: Varies (as it's registered dynamically with Eureka).
+- **Port**: 8082 (varies as it's registered dynamically with Eureka).
 - **Endpoints**:
   - **`/employee`**:
     - `POST`: Creates a new employee.
@@ -64,19 +64,20 @@ This project uses several microservices in a distributed system architecture. Ea
 
 ---
 
-### Summary of Microservice Functions
+### Features
+**Department Management**: CRUD operations for departments, along with Feign-based integration with the Employee service.
+**Employee Management**: CRUD operations for employees and retrieval of employees by department.
+**API Gateway**: Centralized routing for department and employee services.
+**Service Discovery with Eureka**: All services register with Eureka for discoverability.
+**Load Balancing**: Enabled through Eureka and Spring Cloud Gateway.
+**Distributed Tracing with Zipkin**: For monitoring request flows across services.
 
-- **Service Registry (Eureka)**: Manages service registration and discovery.
-- **Admin Server**: Assists with service monitoring and administration.
-- **Department-Service**: Manages department data and uses Feign to fetch employee data by department.
-- **Employee-Service**: Manages employee data and provides data to Department-Service through Feign.
-- **API Gateway**: Centralized routing, load balancing, and access control for all services.
-
-### Example Usage Flow
-
-1. **Client Request**: A client requests department data, including employee details, by calling `http://localhost:9000/department/with-employees`.
-2. **API Gateway Routing**: The API Gateway routes this request to `Department-Service`.
-3. **Department-Service Feign Call**: The Department-Service, using Feign, internally calls Employee-Service to retrieve employee details by department.
-4. **Consolidated Response**: The consolidated department and employee data is returned to the client via the API Gateway.
+### Running the Project
+1. Start the Eureka Server (Service Registry) on port 8761.
+2. Start the Admin Server.
+3. Start the Department and Employee services.
+4. Start the API Gateway on port 9000.
+- You should be able to access the microservices through the API Gateway.
+You can use Docker Compose to run all services together, or run them individually using Spring Boot’s built-in Maven or Gradle commands.
 
 This architecture provides scalability, maintainability, and a clear separation of concerns, ideal for distributed and high-availability applications.
