@@ -65,12 +65,12 @@ This project uses several microservices in a distributed system architecture. Ea
 ---
 
 ### Features
-**Department Management**: CRUD operations for departments, along with Feign-based integration with the Employee service.
-**Employee Management**: CRUD operations for employees and retrieval of employees by department.
-**API Gateway**: Centralized routing for department and employee services.
-**Service Discovery with Eureka**: All services register with Eureka for discoverability.
-**Load Balancing**: Enabled through Eureka and Spring Cloud Gateway.
-**Distributed Tracing with Zipkin**: For monitoring request flows across services.
+- **Department Management**: CRUD operations for departments, along with Feign-based integration with the Employee service.
+- **Employee Management**: CRUD operations for employees and retrieval of employees by department.
+- **API Gateway**: Centralized routing for department and employee services.
+- **Service Discovery with Eureka**: All services register with Eureka for discoverability.
+- **Load Balancing**: Enabled through Eureka and Spring Cloud Gateway.
+- **Distributed Tracing with Zipkin**: For monitoring request flows across services.
 
 ### Running the Project
 1. Start the Eureka Server (Service Registry) on port 8761.
