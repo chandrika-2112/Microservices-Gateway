@@ -1,5 +1,5 @@
 
-# Microservices Project: Service Registry, Department, Employee Services & API Gateway
+# Microservices Project
 
 This project uses several microservices in a distributed system architecture. Each microservice has its own responsibility, and they all communicate via a **Service Registry** and an **API Gateway**. The API Gateway is the entry point for clients, managing routing and load balancing between services.
 
